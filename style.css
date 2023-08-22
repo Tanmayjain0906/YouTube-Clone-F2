@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,200&family=Poppins:wght@200;300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Anton', sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.yt-logo {
+    width: 100px;
+}
+
+.ham-bar {
+    width: 20px;
+}
+
+.yt-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+nav {
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.253);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.user-icon {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.right-nav img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.right-nav .user-icon {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.search-bar {
+    border: 1px solid #ccc;
+    padding: 5px 5px;
+    border-radius: 25px;
+}
+
+.middle-nav .search-bar .search-icon {
+    width: 15px;
+    border: none;
+    background-color: transparent;
+    margin-right: 5px;
+}
+
+.voice-icon {
+    width: 15px;
+}
+
+.search-bar input {
+    border: none;
+    width: 500px;
+    
+}
+
+input:focus {
+    border: none;
+    outline: none;
+    
+}
+
+.left-nav {
+    margin-left: 10px;
+}
+
+
+
+
+.yt-sidebar
+{
+    position: fixed;
+    z-index: 1;
+    width: 8%;
+    box-shadow: 0px 10px 0px ;
+    height: 100%;
+    padding-left: 2%;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.253);
+    text-align: center;
+   
+    margin-inline: auto;
+}
+
+.shortcut-link a img
+{
+    width: 34px;
+}
+
+.shortcut-link a 
+{
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    margin-bottom: 25px;
+    align-items: center; 
+    color: gray;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.shortcut-link a:first-child
+{
+    margin-top: 15px;
+    color: #ED3833;
+}
+
+.shortcut-link a:hover
+{
+    color: #ED3833;
+}
+
+.shortcut-link a img:hover
+{
+    color: #ED3833;
+}
+
+hr
+{
+    width: 75%;
+    border: 1px solid #ccc;
+}
+
+.small-slidebar
+{
+  width: 5%;
+  padding-left: 0;
+  justify-content: center;
+  
+}
+
+.small-slidebar a p
+{
+    display: none; 
+}
+
+.small-slidebar a 
+{
+    margin-inline: auto;
+}
+
+.small-slidebar hr
+{
+    width: 50%;
+    margin-inline: auto;
+}
