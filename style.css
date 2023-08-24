@@ -35,7 +35,7 @@ nav {
     top: 50;
     z-index: 10;
     background-color: white;
-    width: 100%;
+   
 }
 
 .user-icon {
@@ -262,7 +262,7 @@ hr {
     left: 280px;
     top: 180px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     width: calc(95vw - 220px);
     height: 100%;
     gap: 20px;
@@ -365,15 +365,27 @@ hr {
     }
 }
 
-@media (max-width: 1800px) {
+@media (max-width: 1890px) {
     .video-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1600px) {
+    .video-container {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 1400px) {
     .video-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1020px) {
+    .video-container {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
