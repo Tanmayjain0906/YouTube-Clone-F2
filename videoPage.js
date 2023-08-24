@@ -152,7 +152,7 @@ async function addDataToVideoPlay(data) {
         }">
                 <div class="channel-info-detail">
                     <p>${data[0].snippet.channelTitle}</p>
-                    <span>500k Subscribers</span>
+                    <span>${formatNumber(channelData.items[0].statistics.subscriberCount)} Subscribers</span>
                 </div>
             </div>
 
@@ -166,7 +166,7 @@ async function addDataToVideoPlay(data) {
         <hr>
 
         <div class="comments-length">
-            <h3>134 Comments</h3>
+            <h3></h3>
         </div>
 
         <div class="leave-comments">
@@ -226,7 +226,8 @@ async function fetchChannelDetails(data) {
 
 function addDataToComments(value) {
     let commentContainer = document.getElementsByClassName("comment-container")[0];
-
+    let commentLength = document.querySelector(".comments-length h3");
+    commentLength.innerHTML = `${value.length} Comments`
     value.forEach((ele) => {
 
         let div = document.createElement("div");
