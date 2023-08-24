@@ -14,7 +14,7 @@ slider.addEventListener("click", () => {
 
 
 
-let apiKey = "AIzaSyAZdnIKGBcCPitlE2NMYX1fqURJ5wFOgEQ";
+let apiKey = "AIzaSyCglIWZCwKPRtt3AV579jIXWG7rnEZepuc";
 let baseUrl = "https://www.googleapis.com/youtube/v3";
 const video_suggestion_url = `https://www.googleapis.com/youtube/v3/videos?`;
 
