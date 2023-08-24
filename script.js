@@ -14,8 +14,9 @@ slider.addEventListener("click", () => {
 
 
 
-let apiKey = "AIzaSyDUsEjNCN-m2gDf5yj5pOy6ovTWIxmGa-g";
+let apiKey = "AIzaSyAZdnIKGBcCPitlE2NMYX1fqURJ5wFOgEQ";
 let baseUrl = "https://www.googleapis.com/youtube/v3";
+const video_suggestion_url = `https://www.googleapis.com/youtube/v3/videos?`;
 
 let searchButton = document.getElementById("search");
 let searchInput = document.getElementById("search-input");
@@ -33,33 +34,40 @@ searchButton.addEventListener("click", () => {
 
 async function getSearchResult(result) {
 
-    let url = `${baseUrl}/search?key=${apiKey}&type=video&q=${result}&part=snippet&maxResults=25`;
+    let url = `${baseUrl}/search?key=${apiKey}&type=channel,video,playlist&q=${result}&part=snippet&maxResults=50`;
 
-    let response = await fetch(url);
+    let response = await fetch(url, { method: "GET" });
     let data = await response.json();
 
 
-    addDataToUI(data.items);
+    addDataToUISearch(data.items);
 }
 
-let defaultSearch = "multiverse";
 
-getSearchResult(defaultSearch);
+async function homePage()
+{
+    let url = `${video_suggestion_url}key=${apiKey}&part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=In`;
+    let response = await fetch(url);
+    let data = await response.json();
 
+    
+    addDataToUI(data.items);
+}
+homePage();
 
-function addDataToUI(data) {
+function addDataToUISearch(data) {
     videoContainer.innerHTML = "";
 
     data.forEach(element => {
-
+        
         let channel = fetchChannelDetails(element.snippet.channelId);
         channel.then((channelData) => {
-
+            
             let div = document.createElement("div");
             div.className = "video-card";
 
             div.innerHTML = `<div class="upper">
-        <img src="${element.snippet.thumbnails.high.url}" class="thumbnial">
+        <a href="videoPage.html?videoId=${element.id.videoId}"><img src="${element.snippet.thumbnails.high.url}" class="thumbnial"></a>
     </div>
 
     <div class="lower">
@@ -82,7 +90,7 @@ function addDataToUI(data) {
                         channelData.items[0].statistics.viewCount
                       )} views</p>
 
-                    <p class="post-time">. ${new Date(
+                    <p class="post-time">&bull; ${new Date(
                     channelData.items[0].snippet.publishedAt
                 ).toLocaleDateString()}</p>
                 </div>
@@ -92,11 +100,66 @@ function addDataToUI(data) {
         
     </div>`
 
+   
             videoContainer.appendChild(div);
         })
     });
+
+    
 }
 
+function addDataToUI(data) {
+    videoContainer.innerHTML = "";
+
+    data.forEach(element => {
+        
+        let channel = fetchChannelDetails(element.snippet.channelId);
+        channel.then((channelData) => {
+            
+            let div = document.createElement("div");
+            div.className = "video-card";
+
+            div.innerHTML = `<div class="upper">
+        <a href="videoPage.html?videoId=${element.id}"><img src="${element.snippet.thumbnails.high.url}" class="thumbnial"></a>
+    </div>
+
+    <div class="lower">
+
+        <div class="channel-container">
+
+            <img src="${channelData.items[0].snippet.thumbnails.default.url
+                }"" class="channel-logo">
+
+            <div class="right">
+
+                <p class="title-info">${element.snippet.title}</p>
+
+                <div class="channel-name">
+                    ${element.snippet.channelTitle}
+                </div>
+                   
+                <div class="channel-data">
+                    <p class="views">${formatNumber(
+                        channelData.items[0].statistics.viewCount
+                      )} views</p>
+
+                    <p class="post-time">&bull; ${new Date(
+                    channelData.items[0].snippet.publishedAt
+                ).toLocaleDateString()}</p>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>`
+
+   
+            videoContainer.appendChild(div);
+        })
+    });
+
+    
+}
 
 async function fetchChannelDetails(data) {
     let url = `${baseUrl}/channels?part=snippet,statistics,contentDetails&id=${data}&key=${apiKey}`;
