@@ -385,7 +385,7 @@ hr {
 
 @media (max-width: 1020px) {
     .video-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
