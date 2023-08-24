@@ -317,6 +317,7 @@ hr {
 
 .thumbnial {
     width: 100%;
+    border-radius: 10px;
 }
 
 
@@ -405,26 +406,22 @@ hr {
 
     .video-container
     {
-        padding-left: 10px;
         
-        left: 0;
+       width: calc(100vw - 65px);
+        padding-left: 8%;
+        left: 0px;
+        z-index: 1;
         grid-template-columns: repeat(1,1fr);
-        width: fit-content;
+        
     }
 
-    .thumbnial {
-        width: 395px;
-    }
     
-    .channel-container
-    {
-        width: 395px;
-    }
 
-    .title-info
+    .responsive-container
     {
-        word-wrap: break-word;
-
+        display: flex;
+        justify-content: center;
+        margin-inline: auto;
     }
 
     .left-nav
