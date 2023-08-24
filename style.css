@@ -453,5 +453,10 @@ hr {
         display: none;
     }
 
+    .yt-nav
+    {
+      width: fit-content;
+      
+    }
     
 }
