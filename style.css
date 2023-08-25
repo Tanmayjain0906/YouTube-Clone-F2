@@ -34,8 +34,7 @@ nav {
     position: sticky;
     top: 50;
     z-index: 10;
-    background-color: white;
-   
+    background-color: white; 
 }
 
 .user-icon {
@@ -418,7 +417,7 @@ hr {
 
     .thumbnial
     {
-        width: 90%;
+        width: 100%;
     }
 
     .responsive-container
@@ -442,11 +441,13 @@ hr {
         width: 80px;
     }
 
-  .my-nav
-  {
-    display: none;
-  }
+    .yt-nav
+    {
+        gap: 10px;
+    }
   
+  
+
     .voice-icon
     {
         display: none;
@@ -457,5 +458,9 @@ hr {
         display: none;
     }
 
+    .my-nav
+    {
+        display: none;
+    }
     
 } 
