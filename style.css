@@ -408,7 +408,7 @@ hr {
     {
         
         width: 100%;
-        top: 100px;
+        top: 140px;
         left: 0px;
         z-index: 1;
         grid-template-columns: repeat(1,1fr);
@@ -458,9 +458,10 @@ hr {
         display: none;
     }
 
-    .my-nav
+    .middle-nav  .search-bar input
     {
-        display: none;
+        
+        width: 160px;
     }
     
 } 
