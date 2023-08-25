@@ -392,6 +392,7 @@ hr {
 
 @media (max-width: 850px) {
     
+    
     .yt-sidebar
     {
         display: none;
@@ -407,21 +408,25 @@ hr {
     .video-container
     {
         
-       width: calc(100vw - 65px);
-        padding-left: 8%;
+        width: 100%;
+        top: 100px;
         left: 0px;
         z-index: 1;
         grid-template-columns: repeat(1,1fr);
         
     }
 
-    
+    .thumbnial
+    {
+        width: 90%;
+    }
 
     .responsive-container
     {
         display: flex;
         justify-content: center;
         margin-inline: auto;
+        padding-right: 5%;
     }
 
     .left-nav
@@ -429,6 +434,7 @@ hr {
         padding-left: 0;
         margin-left: 0;
         gap: 5px;
+        
     }
 
     .yt-logo
@@ -436,13 +442,11 @@ hr {
         width: 80px;
     }
 
-    .search-bar
-    {
-        width: 200px;
-        
-    }
-
-   
+  .my-nav
+  {
+    display: none;
+  }
+  
     .voice-icon
     {
         display: none;
@@ -453,10 +457,5 @@ hr {
         display: none;
     }
 
-    .yt-nav
-    {
-      width: fit-content;
-      
-    }
     
-}
+} 
