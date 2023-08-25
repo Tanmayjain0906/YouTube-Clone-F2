@@ -267,8 +267,16 @@ function addDataToComments(value) {
 function fetchTags(tagsData)
 {
   let tagContainer = document.getElementsByClassName("tags")[0];
+
+  let arr = tagsData[0].snippet.tags;
+  console.log(arr[1]);
+
+  if(arr.length>5)
+  {
+    arr.splice(5, (arr.length-5));
+  }
   
-  tagsData[0].snippet.tags.forEach((tagsEle) => {
+  arr.forEach((tagsEle) => {
     
     let anchor = document.createElement("a");
     anchor.innerHTML = `#${tagsEle}`;
