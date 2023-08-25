@@ -2,7 +2,7 @@ let curr_location = window.location.href;
 let arr = curr_location.split("=");
 let video_id = arr[1];
 
-let apiKey = "AIzaSyCglIWZCwKPRtt3AV579jIXWG7rnEZepuc";
+let apiKey = "AIzaSyDUsEjNCN-m2gDf5yj5pOy6ovTWIxmGa-g";
 let baseUrl = "https://www.googleapis.com/youtube/v3";
 const video_suggestion_url = `https://www.googleapis.com/youtube/v3/videos?`;
 
