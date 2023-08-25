@@ -116,10 +116,12 @@ async function addDataToVideoPlay(data) {
         <div class="play-video">
             ${data[0].player.embedHtml}
 
-            <div class="tags">
+            
+        </div>
+
+        <div class="tags">
                 
             </div>
-        </div>
 
         <div class="channel-title">
             <h3>${data[0].snippet.localized.title}</h3>
