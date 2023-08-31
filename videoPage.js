@@ -10,6 +10,33 @@ const video_suggestion_url = `https://www.googleapis.com/youtube/v3/videos?`;
 
 let bodyContainer = document.getElementsByClassName("body-container")[0];
 
+let searchButton = document.getElementById("search");
+let searchInput = document.getElementById("search-input");
+
+searchButton.addEventListener("click", () => {
+
+    let result = searchInput.value.trim();
+
+    if (result === "") {
+        return;
+    }
+
+    getSearchResult(result);
+})
+
+async function getSearchResult(result) {
+
+    let url = `${baseUrl}/search?key=${apiKey}&type=channel,video,playlist&q=${result}&part=snippet&maxResults=50`;
+
+    let response = await fetch(url, { method: "GET" });
+    let data = await response.json();
+
+
+    addDataToLeftBar(data.items);
+}
+
+
+
 async function homePage(result) {
     let url = `${baseUrl}/search?key=${apiKey}&type=channel,video,playlist&q=${result}&part=snippet&maxResults=50`;
     let response = await fetch(url);

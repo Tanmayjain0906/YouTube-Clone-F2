@@ -44,16 +44,19 @@ async function getSearchResult(result) {
 }
 
 
-async function homePage()
-{
-    let url = `${video_suggestion_url}key=${apiKey}&part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=In`;
-    let response = await fetch(url);
-    let data = await response.json();
+// async function homePage()
+// {
+//     let url = `${video_suggestion_url}key=${apiKey}&part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=In`;
+//     let response = await fetch(url);
+//     let data = await response.json();
 
     
-    addDataToUI(data.items);
-}
-homePage();
+//     addDataToUI(data.items);
+// }
+// homePage();
+
+let defaultSearch = "most trending song,cricket,games,vines,video"
+getSearchResult(defaultSearch);
 
 function addDataToUISearch(data) {
     videoContainer.innerHTML = "";
@@ -108,58 +111,58 @@ function addDataToUISearch(data) {
     
 }
 
-function addDataToUI(data) {
-    videoContainer.innerHTML = "";
+// function addDataToUI(data) {
+//     videoContainer.innerHTML = "";
 
-    data.forEach(element => {
+//     data.forEach(element => {
         
-        let channel = fetchChannelDetails(element.snippet.channelId);
-        channel.then((channelData) => {
+//         let channel = fetchChannelDetails(element.snippet.channelId);
+//         channel.then((channelData) => {
             
-            let div = document.createElement("div");
-            div.className = "video-card";
+//             let div = document.createElement("div");
+//             div.className = "video-card";
 
-            div.innerHTML = `<div class="upper">
-        <a href="videoPage.html?videoId=${element.id}"><img src="${element.snippet.thumbnails.high.url}" class="thumbnial"></a>
-    </div>
+//             div.innerHTML = `<div class="upper">
+//         <a href="videoPage.html?videoId=${element.id}"><img src="${element.snippet.thumbnails.high.url}" class="thumbnial"></a>
+//     </div>
 
-    <div class="lower">
+//     <div class="lower">
 
-        <div class="channel-container">
+//         <div class="channel-container">
 
-            <img src="${channelData.items[0].snippet.thumbnails.default.url
-                }"" class="channel-logo">
+//             <img src="${channelData.items[0].snippet.thumbnails.default.url
+//                 }"" class="channel-logo">
 
-            <div class="right">
+//             <div class="right">
 
-                <p class="title-info">${element.snippet.title}</p>
+//                 <p class="title-info">${element.snippet.title}</p>
 
-                <div class="channel-name">
-                    ${element.snippet.channelTitle}
-                </div>
+//                 <div class="channel-name">
+//                     ${element.snippet.channelTitle}
+//                 </div>
                    
-                <div class="channel-data">
-                    <p class="views">${formatNumber(
-                        channelData.items[0].statistics.viewCount
-                      )} views</p>
+//                 <div class="channel-data">
+//                     <p class="views">${formatNumber(
+//                         channelData.items[0].statistics.viewCount
+//                       )} views</p>
 
-                    <p class="post-time">&bull; ${new Date(
-                    channelData.items[0].snippet.publishedAt
-                ).toLocaleDateString()}</p>
-                </div>
+//                     <p class="post-time">&bull; ${new Date(
+//                     channelData.items[0].snippet.publishedAt
+//                 ).toLocaleDateString()}</p>
+//                 </div>
 
-            </div>
-        </div>
+//             </div>
+//         </div>
         
-    </div>`
+//     </div>`
 
    
-            videoContainer.appendChild(div);
-        })
-    });
+//             videoContainer.appendChild(div);
+//         })
+//     });
 
     
-}
+// }
 
 async function fetchChannelDetails(data) {
     let url = `${baseUrl}/channels?part=snippet,statistics,contentDetails&id=${data}&key=${apiKey}`;
